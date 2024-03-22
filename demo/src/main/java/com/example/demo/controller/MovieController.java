@@ -26,23 +26,23 @@ public class MovieController {
     @Autowired
     private MovieRepository repository;
 
-    @GetMapping("/movies") // FUNCIONOU
+    @GetMapping("/movies")
     public List<Movie> getMovies() {
         return repository.findAll();
     }
 
-    @GetMapping("/movies/{id}") // FUNCIONOU
+    @GetMapping("/movies/{id}")
     public Optional<Movie> getMovie(@PathVariable long id) {
         return repository.findById(id);
     }
 
     @SuppressWarnings("null")
-    @PostMapping("/movie") // FUNCIONOU
+    @PostMapping("/movie")
     public Movie postMovie(@RequestBody Movie movie) {
         return repository.save(movie);
     }
 
-    @DeleteMapping(value = "/movie/{id}") // FUNCIONOU
+    @DeleteMapping(value = "/movie/{id}")
     public boolean deleteMovie(@PathVariable long id) {
         Optional<Movie> Movie = repository.findById(id);
         if (Movie.isPresent()) {
@@ -52,12 +52,12 @@ public class MovieController {
         return false;
     }
 
-    @GetMapping("/movie/title/{title}") // FUNCIONOU
+    @GetMapping("/movie/title/{title}")
     public List<Movie> getMovieByTitle(@PathVariable String title) {
         return repository.findByTitle(title);
     }
 
-    @PutMapping("/movies/{id}") // FUNCIONOU
+    @PutMapping("/movies/{id}")
     public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") long id, @RequestBody Movie newMovie) {
         Optional<Movie> oldMovie = repository.findById(id);
         if (oldMovie.isPresent()) {
@@ -78,21 +78,4 @@ public class MovieController {
         } else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-    // @PutMapping("/produtos/{id}")
-    // public ResponseEntity<Produto> updateProduto(@PathVariable(value = "id") Long
-    // id, @RequestBody Produto newProduto) {
-    // Optional<Produto> oldProduto = repository.findById(id);
-    // if (oldProduto.isPresent()) {
-    // Produto produto = oldProduto.get();
-    // produto.setNome(newProduto.getNome());
-    // produto.setDescricao(newProduto.getDescricao());
-    // produto.setMarca(newProduto.getMarca());
-    // produto.setValor(newProduto.getValor());
-    // repository.save(produto);
-    // return new ResponseEntity<Produto>(produto, HttpStatus.OK);
-    // } else
-    // return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    // }
-
 }
