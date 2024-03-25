@@ -37,12 +37,12 @@ public class MovieController {
     }
 
     @SuppressWarnings("null")
-    @PostMapping("/movie")
+    @PostMapping("/movies")
     public Movie postMovie(@RequestBody Movie movie) {
         return repository.save(movie);
     }
 
-    @DeleteMapping(value = "/movie/{id}")
+    @DeleteMapping(value = "/movies/{id}")
     public boolean deleteMovie(@PathVariable long id) {
         Optional<Movie> Movie = repository.findById(id);
         if (Movie.isPresent()) {
@@ -52,7 +52,7 @@ public class MovieController {
         return false;
     }
 
-    @GetMapping("/movie/title/{title}")
+    @GetMapping("/movies/title/{title}")
     public List<Movie> getMovieByTitle(@PathVariable String title) {
         return repository.findByTitle(title);
     }
@@ -78,4 +78,5 @@ public class MovieController {
         } else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 }
