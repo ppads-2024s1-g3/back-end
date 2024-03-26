@@ -1,0 +1,4 @@
+com\example\demo\controller\MovieController.class
+com\example\demo\DemoApplication.class
+com\example\demo\entities\Movie.class
+com\example\demo\repository\MovieRepository.class
