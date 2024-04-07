@@ -8,9 +8,10 @@ RUN apt-get install maven -y
 RUN mvn clean install
 
 FROM  openjdk:17-jdk-slim
+ARG JAR_FILE=target/*.jar
 
-EXPOSE 8080
+EXPOSE 25000
 
-COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY  ./target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
