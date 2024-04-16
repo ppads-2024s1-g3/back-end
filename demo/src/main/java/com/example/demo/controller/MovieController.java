@@ -64,7 +64,7 @@ public class MovieController {
             Movie movie = oldMovie.get();
             movie.setTitle(newMovie.getTitle());
             movie.setDescription(newMovie.getDescription());
-            movie.setReleaseDate(newMovie.getReleaseDate());
+            movie.setRelease(newMovie.getRelease());
             movie.setGenre(newMovie.getGenre());
             movie.setLength(newMovie.getLength());
             movie.setCategory(newMovie.getCategory());

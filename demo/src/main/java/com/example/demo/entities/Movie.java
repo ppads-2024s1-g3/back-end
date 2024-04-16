@@ -14,7 +14,7 @@ public class Movie {
     private long id;
     private String title;
     private String description;
-    private String releaseDate;
+    private String release;
     private String genre;
     private String length;
     private String category;
@@ -48,12 +48,12 @@ public class Movie {
         this.description = description;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getRelease() {
+        return release;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setRelease(String releaseDate) {
+        this.release = releaseDate;
     }
 
     public String getGenre() {
@@ -122,7 +122,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", releaseDate=" + releaseDate
+        return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", releaseDate=" + release
                 + ", genre=" + genre + ", length=" + length + ", category=" + category + ", country=" + country
                 + ", director=" + director + ", cast=" + actors + ", year=" + year + ", rating=" + rating + "]";
     }
