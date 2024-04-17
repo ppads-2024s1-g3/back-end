@@ -1,5 +1,8 @@
 package com.example.demo.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,35 +14,17 @@ import jakarta.persistence.Table;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long   id;
+    private long id;
     private String title;
     private String description;
-    private String release_date;
+    private LocalDate release_date;
     private String genre;
     private String category;
-    private String year;
-    private String rating;
+    private int year;
+    private BigDecimal rating; // Use BigDecimal for decimal values
     private String author;
     private String publisher;
-    private String pages;
-
-    // public Book() {
-    // }
-
-    // public Book(long id, String title, String description, String release, String genre, String category, String year,
-    //         String rating, String author, String publisher, String pages) {
-    //     this.id = id;
-    //     this.title = title;
-    //     this.description = description;
-    //     this.release_date = release;
-    //     this.genre = genre;
-    //     this.category = category;
-    //     this.year = year;
-    //     this.rating = rating;
-    //     this.author = author;
-    //     this.publisher = publisher;
-    //     this.pages = pages;
-    // }
+    private int pages;
 
     public long getId() {
         return id;
@@ -65,12 +50,12 @@ public class Book {
         this.description = description;
     }
 
-    public String getRelease_date() {
+    public LocalDate getRelease_date() {
         return release_date;
     }
 
-    public void setRelease_date(String release) {
-        this.release_date = release;
+    public void setRelease_date(LocalDate releaseDate) {
+        this.release_date = releaseDate;
     }
 
     public String getGenre() {
@@ -89,19 +74,19 @@ public class Book {
         this.category = category;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    public String getRating() {
+    public BigDecimal getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(BigDecimal rating) {
         this.rating = rating;
     }
 
@@ -121,18 +106,12 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public String getPages() {
+    public int getPages() {
         return pages;
     }
 
-    public void setPages(String pages) {
+    public void setPages(int pages) {
         this.pages = pages;
     }
 
-    // @Override
-    // public String toString() {
-    //     return "Book [id=" + id + ", title=" + title + ", description=" + description + ", release=" + release_date
-    //             + ", genre=" + genre + ", category=" + category + ", year=" + year + ", rating=" + rating + ", author="
-    //             + author + ", publisher=" + publisher + ", pages=" + pages + "]";
-    // }
 }
