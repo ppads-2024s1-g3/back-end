@@ -52,10 +52,10 @@ public class MovieController {
         return false;
     }
 
-    @GetMapping("/movies/title/{title}")
-    public List<Movie> getMovieByTitle(@PathVariable String title) {
-        return repository.findByTitle(title);
-    }
+    // @GetMapping("/movies/title/{title}")
+    // public List<Movie> getMovieByTitle(@PathVariable String title) {
+    //     return repository.findByTitle(title);
+    // }
 
     @PutMapping("/movies/{id}")
     public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") long id, @RequestBody Movie newMovie) {
