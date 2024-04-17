@@ -36,7 +36,7 @@ public class BookController {
         return repository.findById(id);
     }
 
-    @SuppressWarnings("null")
+    // @SuppressWarnings("null")
     @PostMapping("/books")
     public Book postBook(@RequestBody Book book) {
         return repository.save(book);

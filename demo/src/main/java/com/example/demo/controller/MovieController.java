@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Movie;
 import com.example.demo.repository.MovieRepository;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/api")
@@ -36,7 +38,7 @@ public class MovieController {
         return repository.findById(id);
     }
 
-    @SuppressWarnings("null")
+    // @SuppressWarnings("null")
     @PostMapping("/movies")
     public Movie postMovie(@RequestBody Movie movie) {
         return repository.save(movie);
@@ -54,11 +56,12 @@ public class MovieController {
 
     // @GetMapping("/movies/title/{title}")
     // public List<Movie> getMovieByTitle(@PathVariable String title) {
-    //     return repository.findByTitle(title);
+    // return repository.findByTitle(title);
     // }
-
+    @Transactional
     @PutMapping("/movies/{id}")
-    public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") long id, @RequestBody Movie newMovie) {
+    // public ResponseEntity<Movie> updateMovie(@PathVariable Long id, @RequestBody Movie movie) {}
+    public ResponseEntity<Movie> updateMovie(@PathVariable long id, @RequestBody Movie newMovie) {
         Optional<Movie> oldMovie = repository.findById(id);
         if (oldMovie.isPresent()) {
             Movie movie = oldMovie.get();
@@ -73,6 +76,7 @@ public class MovieController {
             movie.setActors(newMovie.getActors());
             movie.setYear(newMovie.getYear());
             movie.setRating(newMovie.getRating());
+
             repository.save(movie);
             return new ResponseEntity<Movie>(movie, HttpStatus.OK);
         } else

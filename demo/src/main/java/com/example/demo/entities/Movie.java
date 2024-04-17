@@ -1,5 +1,8 @@
 package com.example.demo.entities;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,25 +13,25 @@ import jakarta.persistence.Table;
 @Table(name = "movies")
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String description;
-    private String release;
+    private LocalDate release;
     private String genre;
-    private String length;
+    private Integer length;
     private String category;
     private String country;
     private String director;
     private String actors;
-    private String year;
-    private String rating;
+    private Integer year;
+    private BigDecimal rating;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -48,12 +51,12 @@ public class Movie {
         this.description = description;
     }
 
-    public String getRelease() {
+    public LocalDate getRelease() {
         return release;
     }
 
-    public void setRelease(String releaseDate) {
-        this.release = releaseDate;
+    public void setRelease(LocalDate release) {
+        this.release = release;
     }
 
     public String getGenre() {
@@ -64,11 +67,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public String getLength() {
+    public Integer getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(Integer length) {
         this.length = length;
     }
 
@@ -100,31 +103,24 @@ public class Movie {
         return actors;
     }
 
-    public void setActors(String cast) {
-        this.actors = cast;
+    public void setActors(String actors) {
+        this.actors = actors;
     }
 
-    public String getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
-    public String getRating() {
+    public BigDecimal getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(BigDecimal rating) {
         this.rating = rating;
-    }
-
-    @Override
-    public String toString() {
-        return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", releaseDate=" + release
-                + ", genre=" + genre + ", length=" + length + ", category=" + category + ", country=" + country
-                + ", director=" + director + ", cast=" + actors + ", year=" + year + ", rating=" + rating + "]";
     }
 
 }

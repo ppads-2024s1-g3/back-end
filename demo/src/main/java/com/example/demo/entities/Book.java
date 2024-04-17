@@ -10,8 +10,8 @@ import jakarta.persistence.Table;
 @Table(name = "books")
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long   id;
     private String title;
     private String description;
     private String release_date;
@@ -23,23 +23,23 @@ public class Book {
     private String publisher;
     private String pages;
 
-    public Book() {
-    }
+    // public Book() {
+    // }
 
-    public Book(long id, String title, String description, String release, String genre, String category, String year,
-            String rating, String author, String publisher, String pages) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.release_date = release;
-        this.genre = genre;
-        this.category = category;
-        this.year = year;
-        this.rating = rating;
-        this.author = author;
-        this.publisher = publisher;
-        this.pages = pages;
-    }
+    // public Book(long id, String title, String description, String release, String genre, String category, String year,
+    //         String rating, String author, String publisher, String pages) {
+    //     this.id = id;
+    //     this.title = title;
+    //     this.description = description;
+    //     this.release_date = release;
+    //     this.genre = genre;
+    //     this.category = category;
+    //     this.year = year;
+    //     this.rating = rating;
+    //     this.author = author;
+    //     this.publisher = publisher;
+    //     this.pages = pages;
+    // }
 
     public long getId() {
         return id;
@@ -129,10 +129,10 @@ public class Book {
         this.pages = pages;
     }
 
-    @Override
-    public String toString() {
-        return "Book [id=" + id + ", title=" + title + ", description=" + description + ", release=" + release_date
-                + ", genre=" + genre + ", category=" + category + ", year=" + year + ", rating=" + rating + ", author="
-                + author + ", publisher=" + publisher + ", pages=" + pages + "]";
-    }
+    // @Override
+    // public String toString() {
+    //     return "Book [id=" + id + ", title=" + title + ", description=" + description + ", release=" + release_date
+    //             + ", genre=" + genre + ", category=" + category + ", year=" + year + ", rating=" + rating + ", author="
+    //             + author + ", publisher=" + publisher + ", pages=" + pages + "]";
+    // }
 }
