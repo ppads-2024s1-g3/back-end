@@ -70,11 +70,9 @@ public class MovieController {
             movie.setRelease(newMovie.getRelease());
             movie.setGenre(newMovie.getGenre());
             movie.setLength(newMovie.getLength());
-            movie.setCategory(newMovie.getCategory());
             movie.setCountry(newMovie.getCountry());
             movie.setDirector(newMovie.getDirector());
             movie.setActors(newMovie.getActors());
-            movie.setYear(newMovie.getYear());
             movie.setRating(newMovie.getRating());
 
             repository.save(movie);

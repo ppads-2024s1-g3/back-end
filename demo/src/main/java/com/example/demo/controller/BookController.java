@@ -64,15 +64,11 @@ public class BookController {
             Book book = oldBook.get();
             book.setTitle(newBook.getTitle());
             book.setDescription(newBook.getDescription());
-            book.setRelease_date(newBook.getRelease_date());
             book.setGenre(newBook.getGenre());
-            book.setCategory(newBook.getCategory());
-            book.setYear(newBook.getYear());
             book.setRating(newBook.getRating());
             book.setAuthor(newBook.getAuthor());
             book.setPublisher(newBook.getPublisher());
             book.setPages(newBook.getPages());
-
             repository.save(book);
             return new ResponseEntity<Book>(book, HttpStatus.OK);
         } else

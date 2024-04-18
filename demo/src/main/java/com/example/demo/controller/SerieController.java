@@ -75,7 +75,6 @@ public class SerieController {
             serie.setCountry(newSerie.getCountry());
             serie.setDirector(newSerie.getDirector());
             serie.setActors(newSerie.getActors());
-            serie.setYear(newSerie.getYear());
             serie.setRating(newSerie.getRating());
 
             repository.save(serie);
