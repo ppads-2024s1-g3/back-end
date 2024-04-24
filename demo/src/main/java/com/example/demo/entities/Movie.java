@@ -23,4 +23,5 @@ public class Movie {
     private String director;
     private String actors;
     private String rating;
+    private String image_path;
 }
