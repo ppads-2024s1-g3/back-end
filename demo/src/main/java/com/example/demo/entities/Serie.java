@@ -6,23 +6,38 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
 @Table(name = "series")
-public class Serie {
+@EqualsAndHashCode(callSuper = false)
+public class Serie extends Content {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    private String title;
-    private String description;
-    private String release;
-    private String genre;
-    private String length;
-    private String category;
-    private String country;
     private String director;
     private String actors;
-    private String rating;
     private String seasons;
+
+    public Serie() {
+
+    }
+
+    public Serie(long id, String director, String actors, String seasons) {
+        this.id = id;
+        this.director = director;
+        this.actors = actors;
+        this.seasons = seasons;
+    }
+
+    public Serie(long id, String title, String description, String release, String genre, String country, String rating,
+            String image_path, String content_type, long id2, String director, String actors, String seasons) {
+        super(id, title, description, release, genre, country, rating, image_path, content_type);
+        id = id2;
+        this.director = director;
+        this.actors = actors;
+        this.seasons = seasons;
+    }
+
 }

@@ -70,12 +70,11 @@ public class SerieController {
             serie.setDescription(newSerie.getDescription());
             serie.setRelease(newSerie.getRelease());
             serie.setGenre(newSerie.getGenre());
-            serie.setLength(newSerie.getLength());
-            serie.setCategory(newSerie.getCategory());
             serie.setCountry(newSerie.getCountry());
             serie.setDirector(newSerie.getDirector());
             serie.setActors(newSerie.getActors());
-            serie.setRating(newSerie.getRating());
+            serie.setRating(newSerie.getRating());            
+
 
             repository.save(serie);
             return new ResponseEntity<Serie>(serie, HttpStatus.OK);
