@@ -22,6 +22,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String roles;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Comment> comments;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
