@@ -36,8 +36,7 @@ public class BookController {
         return repository.findById(id);
     }
 
-    // @SuppressWarnings("null")
-    @PostMapping("/books")
+      @PostMapping("/books")
     public Book postBook(@RequestBody Book book) {
         return repository.save(book);
     }
@@ -52,12 +51,7 @@ public class BookController {
         return false;
     }
 
-    // @GetMapping("/books/title/{title}")
-    // public List<Book> getBookByTitle(@PathVariable String title) {
-    // return repository.findByTitle(title);
-    // }
-
-    @PutMapping("/books/{id}")
+      @PutMapping("/books/{id}")
     public ResponseEntity<Book> updateMovie(@PathVariable(value = "id") long id, @RequestBody Book newBook) {
         Optional<Book> oldBook = repository.findById(id);
         if (oldBook.isPresent()) {

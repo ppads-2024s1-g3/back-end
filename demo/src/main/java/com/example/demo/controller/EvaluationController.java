@@ -36,7 +36,7 @@ public class EvaluationController {
         return repository.findById(id);
     }
 
-    // @SuppressWarnings("null")
+  
     @PostMapping("/evaluations")
     public Evaluation postEvaluation(@RequestBody Evaluation evaluation) {
         return repository.save(evaluation);
@@ -52,10 +52,7 @@ public class EvaluationController {
         return false;
     }
 
-    // @GetMapping("/evaluations/title/{title}")
-    // public List<Evaluation> getEvaluationByTitle(@PathVariable String title) {
-    // return repository.findByTitle(title);
-    // }
+ 
 
     @PutMapping("/evaluations/{id}")
     public ResponseEntity<Evaluation> updateEvaluation(@PathVariable(value = "id") long id, @RequestBody Evaluation newEvaluation) {

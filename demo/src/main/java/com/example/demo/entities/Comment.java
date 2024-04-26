@@ -7,7 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "comment")
 public class Comment {
@@ -24,48 +26,4 @@ public class Comment {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    public Comment(long id, String content, User user, Movie movie) {
-        this.id = id;
-        this.content = content;
-        this.user = user;
-        this.movie = movie;
-    }
-
-    public Comment() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-
-    
 }

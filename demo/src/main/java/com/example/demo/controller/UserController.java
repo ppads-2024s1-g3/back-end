@@ -36,7 +36,6 @@ public class UserController {
         return repository.findById(id);
     }
 
-    // @SuppressWarnings("null")
     @PostMapping("/users")
     public User postUser(@RequestBody User user) {
         return repository.save(user);
@@ -51,11 +50,6 @@ public class UserController {
         }
         return false;
     }
-
-    // @GetMapping("/users/title/{title}")
-    // public List<User> getUserByTitle(@PathVariable String title) {
-    // return repository.findByTitle(title);
-    // }
 
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") long id, @RequestBody User newUser) {

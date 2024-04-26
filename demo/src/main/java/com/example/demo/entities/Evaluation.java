@@ -27,5 +27,4 @@ public abstract class Evaluation {
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
-    // getters and setters
 }

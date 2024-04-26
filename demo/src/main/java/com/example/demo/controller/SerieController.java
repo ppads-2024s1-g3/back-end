@@ -38,7 +38,6 @@ public class SerieController {
         return repository.findById(id);
     }
 
-    // @SuppressWarnings("null")
     @PostMapping("/series")
     public Serie postSerie(@RequestBody Serie serie) {
         return repository.save(serie);
@@ -54,14 +53,8 @@ public class SerieController {
         return false;
     }
 
-    // @GetMapping("/series/title/{title}")
-    // public List<Serie> getSerieByTitle(@PathVariable String title) {
-    // return repository.findByTitle(title);
-    // }
     @Transactional
     @PutMapping("/series/{id}")
-    // public ResponseEntity<Serie> updateSerie(@PathVariable Long id, @RequestBody
-    // Serie serie) {}
     public ResponseEntity<Serie> updateSerie(@PathVariable long id, @RequestBody Serie newSerie) {
         Optional<Serie> oldSerie = repository.findById(id);
         if (oldSerie.isPresent()) {
@@ -73,8 +66,7 @@ public class SerieController {
             serie.setCountry(newSerie.getCountry());
             serie.setDirector(newSerie.getDirector());
             serie.setActors(newSerie.getActors());
-            serie.setRating(newSerie.getRating());            
-
+            serie.setRating(newSerie.getRating());
 
             repository.save(serie);
             return new ResponseEntity<Serie>(serie, HttpStatus.OK);

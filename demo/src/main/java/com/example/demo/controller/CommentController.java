@@ -36,7 +36,6 @@ public class CommentController {
         return repository.findById(id);
     }
 
-    // @SuppressWarnings("null")
     @PostMapping("/comments")
     public Comment postComment(@RequestBody Comment comment) {
         return repository.save(comment);
@@ -52,10 +51,6 @@ public class CommentController {
         return false;
     }
 
-    // @GetMapping("/comments/title/{title}")
-    // public List<Comment> getCommentByTitle(@PathVariable String title) {
-    // return repository.findByTitle(title);
-    // }
 
     @PutMapping("/comments/{id}")
     public ResponseEntity<Comment> updateComment(@PathVariable(value = "id") long id, @RequestBody Comment newComment) {

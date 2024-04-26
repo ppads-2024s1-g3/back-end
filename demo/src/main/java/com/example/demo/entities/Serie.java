@@ -20,24 +20,5 @@ public class Serie extends Content {
     private String actors;
     private String seasons;
 
-    public Serie() {
-
-    }
-
-    public Serie(long id, String director, String actors, String seasons) {
-        this.id = id;
-        this.director = director;
-        this.actors = actors;
-        this.seasons = seasons;
-    }
-
-    public Serie(long id, String title, String description, String release, String genre, String country, String rating,
-            String image_path, String content_type, long id2, String director, String actors, String seasons) {
-        super(id, title, description, release, genre, country, rating, image_path, content_type);
-        id = id2;
-        this.director = director;
-        this.actors = actors;
-        this.seasons = seasons;
-    }
 
 }
