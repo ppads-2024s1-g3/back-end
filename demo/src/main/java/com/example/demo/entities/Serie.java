@@ -20,5 +20,4 @@ public class Serie extends Content {
     private String actors;
     private String seasons;
 
-
 }
