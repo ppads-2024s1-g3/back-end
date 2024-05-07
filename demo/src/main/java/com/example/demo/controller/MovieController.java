@@ -68,6 +68,7 @@ public class MovieController {
             movie.setDirector(newMovie.getDirector());
             movie.setActors(newMovie.getActors());
             movie.setRating(newMovie.getRating());
+            movie.setImage_path(newMovie.getImage_path());
 
             repository.save(movie);
             return new ResponseEntity<Movie>(movie, HttpStatus.OK);

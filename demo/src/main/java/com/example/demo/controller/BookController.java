@@ -63,6 +63,7 @@ public class BookController {
             book.setAuthor(newBook.getAuthor());
             book.setPublisher(newBook.getPublisher());
             book.setPages(newBook.getPages());
+            book.setImage_path(newBook.getImage_path());
             repository.save(book);
             return new ResponseEntity<Book>(book, HttpStatus.OK);
         } else

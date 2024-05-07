@@ -67,6 +67,7 @@ public class SerieController {
             serie.setDirector(newSerie.getDirector());
             serie.setActors(newSerie.getActors());
             serie.setRating(newSerie.getRating());
+            serie.setImage_path(newSerie.getImage_path());
 
             repository.save(serie);
             return new ResponseEntity<Serie>(serie, HttpStatus.OK);
