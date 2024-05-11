@@ -57,9 +57,9 @@ public class CommentController {
         Optional<Comment> oldComment = repository.findById(id);
         if (oldComment.isPresent()) {
             Comment comment = oldComment.get();
-            comment.setContent(newComment.getContent());
+            comment.setRating(newComment.getRating());
             comment.setUser(newComment.getUser());
-            comment.setMovie(newComment.getMovie());
+            comment.setContent(newComment.getContent());
             repository.save(comment);
             return new ResponseEntity<Comment>(comment, HttpStatus.OK);
         } else
