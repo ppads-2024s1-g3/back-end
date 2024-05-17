@@ -57,7 +57,6 @@ public class CommentController {
         Optional<Comment> oldComment = repository.findById(id);
         if (oldComment.isPresent()) {
             Comment comment = oldComment.get();
-            comment.setRating(newComment.getRating());
             comment.setUser(newComment.getUser());
             comment.setContent(newComment.getContent());
             repository.save(comment);
