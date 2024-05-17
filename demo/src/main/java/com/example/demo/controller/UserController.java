@@ -36,10 +36,20 @@ public class UserController {
         return repository.findById(id);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/register")
     public User postUser(@RequestBody User user) {
         return repository.save(user);
     }
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        User retrievedUser = repository.findOneByEmailAndPassword(user.getEmail(), user.getPassword());
+        if (retrievedUser != null) {
+            return ResponseEntity.ok(retrievedUser);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
 
     @DeleteMapping(value = "/users/{id}")
     public boolean deleteUser(@PathVariable long id) {
@@ -60,8 +70,6 @@ public class UserController {
             user.setName(newUser.getName());
             user.setEmail(newUser.getEmail());
             user.setPassword(newUser.getPassword());
-            user.setComments(newUser.getComments());
-            user.setEvaluations(newUser.getEvaluations());
             user.setComments(newUser.getComments());
             user.setEvaluations(newUser.getEvaluations());
             repository.save(user);
