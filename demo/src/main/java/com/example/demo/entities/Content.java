@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +17,7 @@ public abstract class Content {
     private long id;
     private String title;
     private String description;
+     @Column(name = "`release`", nullable = false, length = 255)
     private String release;
     private String genre;
     private String country;
