@@ -8,14 +8,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Data
+// @NoArgsConstructor
+@EqualsAndHashCode
 @Entity
 @Table(name = "evaluation")
-public abstract class Evaluation {
+public class Evaluation {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    
+
     private String rating;
 
     @ManyToOne
@@ -25,5 +29,9 @@ public abstract class Evaluation {
     @ManyToOne
     @JoinColumn(name = "content_id")
     private Content content;
+
+    public Evaluation() {
+
+    }
 
 }
